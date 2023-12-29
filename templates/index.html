@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Employees {% endblock %}</h1>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Number</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+            {% for employee in employees %}
+            <tr>
+                <th scope="row">{{ employee[0] }}</th>
+                <td>{{ employee[1] }}</td>
+                <td>{{ employee[2] }}</td>
+                <td>{{ employee[3] }}</td>  
+                <td>
+                    <a href="{{ url_for('update', id = employee[0]) }}"><b>Edit</b></a>
+                    <a href="{{ url_for('delete', id = employee[0]) }}"><b>Delete</b></a>
+                </td>      
+            </tr>
+            {% endfor %}    
+    </table>
+{% endblock %}  
+    

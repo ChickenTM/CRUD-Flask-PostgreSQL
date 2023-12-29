@@ -1,0 +1,38 @@
+<head>
+    <title>{% block title %} {% endblock %} - Flask CRUD</title>
+    <style>
+        nav a {
+            color: #0b5cd4;
+            font-size: 2em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        .employee {
+            padding: 20px;
+            margin: 10px;
+            background-color: #20c3d8;
+        }
+
+        .review {
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        a {
+            color: #000000;
+            padding: 0px 10px;
+            word-wrap: normal;
+            display: inline-block;
+        }
+    </style>
+</head>
+<nav>
+    <a href = "{{ url_for('index') }}">Employee Database</a>
+    <a href = "{{ url_for('create') }}">Create</a>
+    <a href = "{{ url_for('about') }}">About</a>
+</nav>
+<hr>
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+

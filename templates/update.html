@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+    <h1>{% block title %} Update Employee {% endblock %}</h1>
+    <form action="{{ url_for('edit') }}" method="POST">
+        {% for employee in employees %}
+        <div class="form-group">
+            <input class="form-control" type="hidden" name="id" placeholder="Employee ID" value="{{employee[0]}}">
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" name="name" placeholder="Employee Name" value="{{employee[1]}}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" name="email" placeholder="Employee Email" value="{{employee[2]}}">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input class="form-control" type="text" pattern="[0-9]{10}" name="phone" placeholder="Employee Contact Number" value="{{employee[3]}}">
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-primary">Update</button>
+        </div>
+        {% endfor %}
+    </form>
+{% endblock %} 
